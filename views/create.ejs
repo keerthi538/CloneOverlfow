@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs')%>
+<body>
+    <%- include('./partials/nav.ejs')%>
+
+    <div class="create-question content">
+        <form action="/questions" method="POST">
+            <label for="head">Question head:</label>
+            <input type="text" id="title" name="head" required>
+            <label for="body">Questions body:</label>
+            <textarea id="body" name="body" required></textarea>
+            <button>Submit</button>
+        </form>
+    </div>
+
+    <%- include('./partials/footer.ejs')%>
+</body>
+</html>

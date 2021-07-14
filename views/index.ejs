@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs')%>
+<body>
+    
+    <%- include('./partials/nav.ejs')%>
+
+    <div class="question content">
+        <span>Hello <%= usrname %></span>
+        <h2>All Questions</h2>
+
+        <% if(questions.length > 0){ %>
+            <% questions.forEach((question) =>{%>
+                <a href="/questions/<%= question.id %>" class="single">
+                    <h3><%= question.head %> <span style="float: right; text-transform: lowercase; font-weight: 200;"> by <%= question.author%></span></h3>
+                    <p><%= question.answers.length %> answers</p>
+                </a>
+            <%})%>
+        <% } %>
+    </div>
+
+    
+    
+    <%- include('./partials/footer.ejs')%>
+</body>
+</html>

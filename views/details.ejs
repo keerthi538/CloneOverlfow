@@ -1,0 +1,47 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="details content">
+    <h2><%= question.head %></h2>
+    <div class="content">
+      <p><%= question.body %></p>
+    </div>
+  </div>
+
+  <div class="answer content">
+    <br><h2>Answers (<%= question.answers.length %>)</h2>
+    <% if(question.answers.length > 0) {%>
+        <div class="single-answer">
+          <% question.answers.forEach((answer) =>{%>
+            <h4 class="single"><%= answer.content %></h4>
+            <span>-<%= answer.author%></span>
+            <hr><br>
+          <%})%>
+        </div>
+    <%} %>
+          
+  </div>
+
+  <div class="new-answer">
+    <form action="/questions/<%=question.id%>" method="POST"> 
+      <label for="body" style="font-size: 20px;">Your Answer:</label><br>
+      <textarea id="body" name="body" required style="width: 100%; border: 2px solid black; font-size: 20px; padding: 10px; font-weight: 400;"></textarea><br>
+      <br><br>
+      <button style="padding: 10px; 
+              width: 20%; 
+              background-color: rgba(231, 216, 227, 0.966); 
+              outline: none; 
+              border: 2px solid black"
+              id="submit"
+      >Submit</button>
+  </form>
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+
+  
+</body>
+</html>
